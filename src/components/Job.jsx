@@ -1,17 +1,19 @@
 import classes from "./Job.module.css";
 import JobLayout from "./layout/JobLayout";
 
-function Job() {
+function Job({image,title,desc,date}) {
   return (
     <li className={classes.item}>
     <JobLayout>
       <div className={classes.image}>
-        <img src="https://initiate.alphacoders.com/images/106/cropped-1920-1080-106774.jpg?5185" alt=""></img>
+        <img src={image} alt={title}></img>
       </div>
       <div className={classes.content}>
-        <h1>TITLE</h1>
-        <p>DESCRIPTION</p>
+        <h3>{title}</h3>
+        <p>{desc}</p>
+        <p>{date}</p>
       </div>
+      <div className={classes.actions}></div>
       </JobLayout>
     </li>
   );
