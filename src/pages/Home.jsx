@@ -1,5 +1,7 @@
+import JobList from "../components/JobList";
+
 function Home() {
-  return <div>Home Page</div>;
+  return <div><JobList/></div>;
 }
 
 export default Home;

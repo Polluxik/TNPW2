@@ -10,6 +10,9 @@ function Navigation() {
                 <Link to='/'>Home</Link>
             </li>
             <li>
+                <Link to='/create'>New Job</Link>
+            </li>
+            <li>
                 <Link to='/profile'>Profile</Link>
             </li>
         </ul>
