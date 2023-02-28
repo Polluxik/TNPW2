@@ -1,25 +1,41 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import JobLayout from "./layout/JobLayout";
+import classes from "./CreateJob.module.css";
 
 function CreateJob({ onAddJob }) {
-  const titleRef = useRef();
-  const imageRef = useRef();
-  const descRef = useRef();
-  const dateRef = useRef();
+  const [enteredTitle, setEnteredTitle] = useState("");
+  const [enteredImage, setEnteredImage] = useState("");
+  const [enteredDesc, setEnteredDesc] = useState("");
+  const [enteredPay, setEnteredPay] = useState("");
+
+  const date = new Date();
+  const currentDate = `${date.getDate()}/${
+    date.getMonth() + 1
+  }/${date.getFullYear()}`;
+
+  function titleChange(event) {
+    setEnteredTitle(event.target.value);
+    console.log(enteredTitle);
+  }
+  function imageChange(event) {
+    setEnteredImage(event.target.value);
+  }
+  function descChange(event) {
+    setEnteredDesc(event.target.value);
+  }
+  function payChange(event) {
+    setEnteredPay(event.target.value);
+  }
 
   function submitFunc(event) {
     event.preventDefault();
-
-    const enteredTitle = titleRef.current.value;
-    const enteredImage = imageRef.current.value;
-    const enteredDesc = descRef.current.value;
-    const enteredDate = dateRef.current.value;
 
     const jobData = {
       title: enteredTitle,
       image: enteredImage,
       desc: enteredDesc,
-      date: enteredDate,
+      date: currentDate,
+      pay: enteredPay,
     };
 
     console.log(jobData);
@@ -28,25 +44,25 @@ function CreateJob({ onAddJob }) {
 
   return (
     <JobLayout>
-      <form onSubmit={submitFunc}>
+      <form className={classes.form} onSubmit={submitFunc}>
         <div>
-          <label htmlFor="title">Title</label>
-          <input type="text" required id="title" ref={titleRef}></input>
+          <label htmlFor="title">Název</label><br></br>
+          <input type="text" required id="title" onChange={titleChange}></input>
         </div>
         <div>
-          <label htmlFor="image">Image</label>
-          <input type="text" required id="image" ref={imageRef}></input>
+          <label htmlFor="image">Ilustrační foto</label><br></br>
+          <input type="url" id="image" onChange={imageChange}></input>
         </div>
         <div>
-          <label htmlFor="desc">Desc</label>
-          <input type="text" required id="desc" ref={descRef}></input>
+          <label htmlFor="desc">Informace</label><br></br>
+          <textarea id="desc" name="desc" rows="4" cols="50"></textarea>
+        </div>
+        <div className={classes.num}>
+          <label htmlFor="pay">Plat</label><br></br>
+          <input type="number" required id="pay" onChange={payChange}></input>
         </div>
         <div>
-          <label htmlFor="date">Date</label>
-          <input type="date" required id="date" ref={dateRef}></input>
-        </div>
-        <div>
-          <button>Create Job</button>
+          <button>Přidej nabídku</button>
         </div>
       </form>
     </JobLayout>

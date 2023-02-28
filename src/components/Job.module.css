@@ -16,9 +16,10 @@
 }
 
 .content {
-    text-align: center;
+    text-align: left;
     padding: 1rem;
     color: white;
+    text-overflow: clip;
 }
 
 .content h1 {
@@ -44,4 +45,9 @@
 .actions button:hover,
 .actions button:active {
     background-color: #ffe2ed;
+}
+
+.content .date {
+    text-align: right;
+    color: rgb(174, 174, 174);
 }

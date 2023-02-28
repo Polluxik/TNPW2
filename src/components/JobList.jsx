@@ -8,10 +8,10 @@ function JobList(props) {
       {props.jobs.map((job) => (
         <Job
           key={job.id}
-          image={job.image}
           desc={job.desc}
           title={job.title}
           date={job.date}
+          pay={job.pay}
         />
       ))}
     </ul>

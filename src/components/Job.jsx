@@ -1,19 +1,17 @@
 import classes from "./Job.module.css";
 import JobLayout from "./layout/JobLayout";
-
-function Job({image,title,desc,date}) {
+  
+function Job({ title, desc, date,pay }) {
   return (
     <li className={classes.item}>
-    <JobLayout>
-      <div className={classes.image}>
-        <img src={image} alt={title}></img>
-      </div>
-      <div className={classes.content}>
-        <h3>{title}</h3>
-        <p>{desc}</p>
-        <p>{date}</p>
-      </div>
-      <div className={classes.actions}></div>
+      <JobLayout>
+        <div className={classes.content}>
+          <h1>{title}</h1>
+          <p>{desc} lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem </p>
+          <p>Plat: {pay} /h</p>
+          <p className={classes.date}>Publikováno {date}</p>
+        </div>
+        {/* <div className={classes.actions}></div> */}
       </JobLayout>
     </li>
   );

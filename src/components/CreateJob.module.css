@@ -1,0 +1,15 @@
+.form {
+    color:white;
+}
+
+/* Chrome, Safari, Edge, Opera */
+.num input::-webkit-outer-spin-button,
+.num input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.num input[type=number] {
+  -moz-appearance: textfield;
+}
