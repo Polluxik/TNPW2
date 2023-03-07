@@ -12,6 +12,7 @@ function Navigation() {
             <li>
                 <Link to='/create'>New Job</Link>
             </li>
+            
             <li>
                 <Link to='/profile'>Profile</Link>
             </li>

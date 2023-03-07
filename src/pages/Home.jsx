@@ -28,9 +28,14 @@ function Home() {
   }, []);
 
   return (
-    <div>
-      <JobList jobs={loadedJobs} />
-    </div>
+    <>
+      {loadedJobs.length === 0 && <div>NO LOADED JOBS</div>}
+      {loadedJobs.length > 0 &&
+        <div>
+          <JobList jobs={loadedJobs} />
+        </div>
+      }
+    </>
   );
 }
 

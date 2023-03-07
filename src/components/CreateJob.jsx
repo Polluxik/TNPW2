@@ -4,9 +4,9 @@ import classes from "./CreateJob.module.css";
 
 function CreateJob({ onAddJob }) {
   const [enteredTitle, setEnteredTitle] = useState("");
-  const [enteredImage, setEnteredImage] = useState("");
   const [enteredDesc, setEnteredDesc] = useState("");
   const [enteredPay, setEnteredPay] = useState("");
+  const [enteredProf, setEnteredProf] = useState("");
 
   const date = new Date();
   const currentDate = `${date.getDate()}/${
@@ -17,14 +17,15 @@ function CreateJob({ onAddJob }) {
     setEnteredTitle(event.target.value);
     console.log(enteredTitle);
   }
-  function imageChange(event) {
-    setEnteredImage(event.target.value);
-  }
+
   function descChange(event) {
     setEnteredDesc(event.target.value);
   }
   function payChange(event) {
     setEnteredPay(event.target.value);
+  }
+  function profChange(event) {
+    setEnteredProf(event.target.value);
   }
 
   function submitFunc(event) {
@@ -32,10 +33,10 @@ function CreateJob({ onAddJob }) {
 
     const jobData = {
       title: enteredTitle,
-      image: enteredImage,
       desc: enteredDesc,
       date: currentDate,
       pay: enteredPay,
+      prof: enteredProf,
     };
 
     console.log(jobData);
@@ -46,19 +47,29 @@ function CreateJob({ onAddJob }) {
     <JobLayout>
       <form className={classes.form} onSubmit={submitFunc}>
         <div>
-          <label htmlFor="title">Název</label><br></br>
+          <label htmlFor="title">Název</label>
+          <br></br>
           <input type="text" required id="title" onChange={titleChange}></input>
         </div>
         <div>
-          <label htmlFor="image">Ilustrační foto</label><br></br>
-          <input type="url" id="image" onChange={imageChange}></input>
+          <label htmlFor="prof">Profese</label>
+          <br></br>
+          <input type="text" required id="prof" onChange={profChange}></input>
         </div>
         <div>
-          <label htmlFor="desc">Informace</label><br></br>
-          <textarea id="desc" name="desc" rows="4" cols="50"></textarea>
+          <label htmlFor="desc">Informace</label>
+          <br></br>
+          <textarea
+            id="desc"
+            name="desc"
+            rows="4"
+            cols="50"
+            onChange={descChange}
+          ></textarea>
         </div>
         <div className={classes.num}>
-          <label htmlFor="pay">Plat</label><br></br>
+          <label htmlFor="pay">Plat</label>
+          <br></br>
           <input type="number" required id="pay" onChange={payChange}></input>
         </div>
         <div>
