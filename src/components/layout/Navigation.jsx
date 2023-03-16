@@ -1,16 +1,29 @@
 import { Link } from "react-router-dom";
 import classes from "./Navigation.module.css";
 import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../firebase/firebase";
+import { auth, db } from "../firebase/firebase";
 import { useEffect, useState } from "react";
+import { doc, getDoc, setDoc } from "@firebase/firestore";
 
 function Navigation() {
   const [userId, setUserId] = useState("");
+
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        setUserId(user);
+        
         const uid = user.uid;
+
+        getDoc(doc(db, "accounts", user.email)).then(docSnap => {
+          if (docSnap.exists()) {
+            const username = docSnap.data().username;
+            setUserId(username);
+            console.log("Document data:", userId);
+          } else {
+            console.log("No such document!");
+          }
+        })
+
         console.log("uid", uid);
       } else {
         console.log("user is logged out");
@@ -31,12 +44,12 @@ function Navigation() {
           </li>
           {userId && (
             <li>
-              <Link to="/profile">Logged In</Link>
+              <Link to="/profile">{userId}</Link>
             </li>
           )}
           {!userId && (
             <li>
-              <Link to="/account">Register/Login</Link>
+              <Link to="/account">Register</Link>
             </li>
           )}
         </ul>

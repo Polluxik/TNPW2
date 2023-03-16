@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import NewJob from "./pages/NewJob";
-import NewUser from "./pages/NewUser";
+import Account from "./pages/Account";
 
 
 import Layout from "./components/layout/MainLayout";
@@ -12,7 +12,7 @@ function App() {
     <Layout>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/account" element={<NewUser />} />
+        <Route path="/account" element={<Account />} />
         <Route path="/create" element={<NewJob />} />
       </Routes>
     </Layout>

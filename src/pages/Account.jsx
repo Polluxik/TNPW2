@@ -1,8 +1,8 @@
-import Signup from "../components/firebase/Signup";
+import Credentials from "../components/firebase/Credentials";
 import { signOut } from "firebase/auth";
 import { auth } from "../components/firebase/firebase";
 import { useNavigate } from "react-router-dom";
-function Profile() {
+function Account() {
   const navigate = useNavigate();
   const handleLogout = () => {
     signOut(auth)
@@ -14,10 +14,10 @@ function Profile() {
   };
   return (
     <div>
-      <Signup />
+      <Credentials />
       <button onClick={handleLogout}>SignOut</button>
     </div>
   );
 }
 
-export default Profile;
+export default Account;

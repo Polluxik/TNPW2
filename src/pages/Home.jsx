@@ -5,36 +5,36 @@ function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const [loadedJobs, setLoadedJobs] = useState([]);
 
-  useEffect(() => {
-    setIsLoading(true);
-    fetch(
-      "https://test2-e0e22-default-rtdb.europe-west1.firebasedatabase.app/jobs.json"
-    )
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        const jobs = [];
-        for (const key in data) {
-          const job = {
-            id: key,
-            ...data[key],
-          };
-          jobs.push(job);
-        }
-        setIsLoading(false);
-        setLoadedJobs(jobs);
-      });
-  }, []);
+  // useEffect(() => {
+  //   setIsLoading(true);
+  //   fetch(
+  //     "https://tnpw2jobs-default-rtdb.europe-west1.firebasedatabase.app/jobs.json"
+  //   )
+  //     .then((response) => {
+  //       return response.json();
+  //     })
+  //     .then((data) => {
+  //       const jobs = [];
+  //       for (const key in data) {
+  //         const job = {
+  //           id: key,
+  //           ...data[key],
+  //         };
+  //         jobs.push(job);
+  //       }
+  //       setIsLoading(false);
+  //       setLoadedJobs(jobs);
+  //     });
+  // }, []);
 
   return (
     <>
-      {loadedJobs.length === 0 && <div>NO LOADED JOBS</div>}
+      {/* {loadedJobs.length === 0 && <div>NO LOADED JOBS</div>}
       {loadedJobs.length > 0 &&
         <div>
           <JobList jobs={loadedJobs} />
         </div>
-      }
+      } */}
     </>
   );
 }

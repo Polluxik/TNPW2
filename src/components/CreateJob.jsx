@@ -73,7 +73,7 @@ function CreateJob({ onAddJob }) {
           <input type="number" required id="pay" onChange={payChange}></input>
         </div>
         <div>
-          <button>Přidej nabídku</button>
+          <button>Vytvoř nabídku</button>
         </div>
       </form>
     </JobLayout>
