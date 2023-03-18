@@ -3,12 +3,12 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAlzg1FBKu0MWmleYdgymJ4QbrmLrCndMs",
-  authDomain: "tnpw2jobs.firebaseapp.com",
-  projectId: "tnpw2jobs",
-  storageBucket: "tnpw2jobs.appspot.com",
-  messagingSenderId: "271684581739",
-  appId: "1:271684581739:web:bd25cb0baba8d63e72b42e"
+  apiKey: "XXXXX",
+  authDomain: "XXXXX",
+  projectId: "XXXXX",
+  storageBucket: "XXXXX",
+  messagingSenderId: "XXXXX",
+  appId: "XXXXX"
 };
 
 

@@ -5,7 +5,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import { auth, db } from "./firebase";
+import { auth, db } from "./firebase/firebase";
 import { doc, setDoc } from "@firebase/firestore";
 
 import classes from "./Credentials.module.css";
@@ -20,7 +20,7 @@ function Credentials() {
     e.preventDefault();
 
     await signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {})
+      .then((userCredential) => {console.log("Successfuly logged in!")})
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;

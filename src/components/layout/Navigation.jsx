@@ -33,7 +33,7 @@ function Navigation() {
 
   return (
     <header className={classes.header}>
-      <div className={classes.logo}>Jobs</div>
+      <div className={classes.logo}>Job Search</div>
       <nav>
         <ul>
           <li>
@@ -44,12 +44,12 @@ function Navigation() {
           </li>
           {userId && (
             <li>
-              <Link to="/profile">{userId}</Link>
+              <Link to="/account">{userId}</Link>
             </li>
           )}
           {!userId && (
             <li>
-              <Link to="/account">Register</Link>
+              <Link to="/account">Account</Link>
             </li>
           )}
         </ul>
