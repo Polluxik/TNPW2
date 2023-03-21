@@ -11,22 +11,22 @@ function Navigation() {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        
         const uid = user.uid;
 
-        getDoc(doc(db, "accounts", user.email)).then(docSnap => {
+        getDoc(doc(db, "accounts", user.email)).then((docSnap) => {
           if (docSnap.exists()) {
             const username = docSnap.data().username;
             setUserId(username);
-            console.log("Document data:", userId);
+            //console.log("Document data:", userId);
           } else {
             console.log("No such document!");
           }
-        })
+        });
 
-        console.log("uid", uid);
+       // console.log("uid", uid);
       } else {
-        console.log("user is logged out");
+        setUserId();
+        //console.log("user is logged out");
       }
     });
   }, []);
