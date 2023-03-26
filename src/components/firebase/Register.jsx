@@ -5,11 +5,18 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "./firebase";
 import { doc, setDoc } from "@firebase/firestore";
 
-function Register() {
+import classes from "./Login.module.css";
+
+function Register(props) {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  function registerOnClickListener(e){
+    e.preventDefault();
+    props.onRegisterClick();
+  }
 
   const onRegister = async (e) => {
     e.preventDefault();
@@ -33,32 +40,34 @@ function Register() {
   };
   return (
     <div>
-      <h2>Register</h2>
+      <h2 className={classes.title}>Register</h2>
       <form>
-        <label htmlFor="username">Name:</label>
-        <input
+        <label className={classes.labels}htmlFor="username">Name</label>
+        <input className={classes.input}
           type="text"
           id="username"
           name="username"
           onChange={(e) => setUsername(e.target.value)}
         />
 
-        <label htmlFor="emailReg">Email:</label>
-        <input
+        <label className={classes.labels}htmlFor="emailReg">Email</label>
+        <input className={classes.input}
           type="email"
           id="emailReg"
           name="email"
           onChange={(e) => setEmail(e.target.value)}
         />
 
-        <label htmlFor="passwordReg">Password:</label>
-        <input
+        <label className={classes.labels}htmlFor="passwordReg">Password</label>
+        <input className={classes.input}
           type="password"
           id="passwordReg"
           name="password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <input type="submit" value="Register" onClick={onRegister} />
+        <input className={classes.submit} type="submit" value="Register" onClick={onRegister} />
+        <p>Already have an account? <a className={classes.link} onClick={registerOnClickListener}>Sign In</a>.</p>
+
       </form>
     </div>
   );

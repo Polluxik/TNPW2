@@ -1,5 +1,5 @@
 import Credentials from "../components/Credentials";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { useState } from "react";
 import Profile from "../components/Profile";
 
@@ -17,7 +17,27 @@ function Account() {
     }
   });
 
-  return <div>{isLogged ? <Profile /> : <Credentials />}</div>;
+  const handleLogout = () => {
+    signOut(auth)
+      .then(() => {
+        navigate("/");
+        console.log("Signed out successfully");
+      })
+      .catch((error) => {});
+  };
+
+  return (
+    <div>
+      {isLogged ? (
+        <>
+          <Profile />
+          <button onClick={handleLogout}>SIGN OUT</button>
+        </>
+      ) : (
+        <Credentials />
+      )}
+    </div> 
+  );
 }
 
 export default Account;

@@ -6,16 +6,7 @@ function Home() {
   const [isLoading, setIsLoading] = useState();
   const [loadedJobs, setLoadedJobs] = useState([]);
 
-  const auth = getAuth();
-  const handleLogout = () => {
-    signOut(auth)
-      .then(() => {
-        navigate("/");
-        console.log("Signed out successfully");
-      })
-      .catch((error) => {});
-  };
-
+  
   // useEffect(() => {
   //   setIsLoading(true);
   //   fetch(
@@ -49,7 +40,7 @@ function Home() {
           <JobList jobs={loadedJobs} />
         </div>
       } */}
-      <button onClick={handleLogout}>SIGN OUT</button>
+      
     </>
   );
 }
