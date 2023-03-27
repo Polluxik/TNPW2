@@ -13,9 +13,8 @@ function Job({ title, desc, date, pay, prof }) {
             <p className={classes.date}>{date}</p>
           </div>
           <p>{desc}</p>
-          <div className={classes.containerr}>
+          <div className={classes.container}>
             <p>Plat: {pay}Kč/h</p>
-            <p>Kontakt</p>
           </div>
         </div>
       </JobLayout>

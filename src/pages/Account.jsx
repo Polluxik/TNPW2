@@ -5,11 +5,13 @@ import Profile from "../components/Profile";
 
 function Account() {
   const [isLogged, setIsLogged] = useState(false);
+  const [LogUser, setLogUser] = useState();
 
   const auth = getAuth();
   onAuthStateChanged(auth, (user) => {
     if (user) {
       setIsLogged(true);
+      setLogUser(user.email);
       console.log("user logged in? : " + isLogged);
     } else {
       //console.log(isLogged);
@@ -21,6 +23,7 @@ function Account() {
     signOut(auth)
       .then(() => {
         navigate("/");
+        setLogUser();
         console.log("Signed out successfully");
       })
       .catch((error) => {});
@@ -30,13 +33,13 @@ function Account() {
     <div>
       {isLogged ? (
         <>
-          <Profile />
+          <Profile user={LogUser}/>
           <button onClick={handleLogout}>SIGN OUT</button>
         </>
       ) : (
         <Credentials />
       )}
-    </div> 
+    </div>
   );
 }
 

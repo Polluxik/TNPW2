@@ -1,6 +1,10 @@
 import { useRef, useState } from "react";
 import JobLayout from "./layout/JobLayout";
 import classes from "./CreateJob.module.css";
+import { onAuthStateChanged } from "firebase/auth";
+
+import { auth, db } from "./firebase/firebase";
+import { collection, doc, setDoc } from "@firebase/firestore";
 
 function CreateJob({ onAddJob }) {
   const [enteredTitle, setEnteredTitle] = useState("");
@@ -8,10 +12,38 @@ function CreateJob({ onAddJob }) {
   const [enteredPay, setEnteredPay] = useState("");
   const [enteredProf, setEnteredProf] = useState("");
 
+  const [logUser, setLogUser] = useState([]);
+
   const date = new Date();
   const currentDate = `${date.getDate()}/${
     date.getMonth() + 1
   }/${date.getFullYear()}`;
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      setLogUser(user);
+    }
+  });
+
+  const createJob = async (e) => {
+    e.preventDefault();
+
+    const randomId = doc(collection(db, "_")).id;
+
+    setDoc(doc(db, "accounts", logUser.email, "jobslist", randomId), {
+      title: enteredTitle,
+      prof: enteredProf,
+      pay: enteredPay,
+      desc: enteredDesc,
+    });
+
+    setDoc(doc(db, "jobs", randomId), {
+      title: enteredTitle,
+      prof: enteredProf,
+      pay: enteredPay,
+      desc: enteredDesc,
+    });
+  };
 
   function titleChange(event) {
     setEnteredTitle(event.target.value);
@@ -73,7 +105,7 @@ function CreateJob({ onAddJob }) {
           <input type="number" required id="pay" onChange={payChange}></input>
         </div>
         <div>
-          <button>Vytvoř nabídku</button>
+          <button onClick={createJob}>Vytvoř nabídku</button>
         </div>
       </form>
     </JobLayout>
