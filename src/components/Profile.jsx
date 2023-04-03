@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
-import { doc, getDocs, setDoc, collection } from "@firebase/firestore";
+
+import { getDocs, collection } from "@firebase/firestore";
 import { db } from "../components/firebase/firebase";
+
 import JobList from "./JobList";
 
 function Profile({user}) {
   const [loadedJobs, setLoadedJobs] = useState([]);
 
-  const [documents, setDocuments] = useState([]);
   useEffect(() => {
     const getAllDocuments = async () => {
       const documents = [];
