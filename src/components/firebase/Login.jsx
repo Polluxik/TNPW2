@@ -33,7 +33,7 @@ function Login(props) {
   return (
     <div>
       <h2 className={classes.title}>Login</h2>
-      <form className={classes.form}>
+      <form className={classes.login}>
         <label className={classes.labels}htmlFor="email">Email</label>
         <input className={classes.input}
           type="email"

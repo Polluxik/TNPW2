@@ -1,0 +1,48 @@
+.item {
+    margin: 1rem 0;
+}
+.edit {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+  }
+  
+  .label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    flex-basis: 30%;
+  }
+  
+  .input[type="text"],
+  .input[type="number"],
+  .textarea {
+    flex-basis: 70%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    background-color: #008080;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .button[type="submit"] {
+    background-color: #009900;
+  }
+  
+  .button[type="submit"]:hover,
+  .button[type="button"]:hover {
+    background-color: #007777;
+  }

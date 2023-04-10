@@ -33,7 +33,7 @@ function Profile({user}) {
       )}
       {loadedJobs.length > 0 && (
         <div>
-          <JobList jobs={loadedJobs} />
+          <JobList jobs={loadedJobs} edit={true} user={user}/>
         </div>
       )}
     </>

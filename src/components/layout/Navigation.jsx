@@ -3,7 +3,7 @@ import classes from "./Navigation.module.css";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "../firebase/firebase";
 import { useEffect, useState } from "react";
-import { doc, getDoc, setDoc } from "@firebase/firestore";
+import { doc, getDoc } from "@firebase/firestore";
 
 function Navigation() {
   const [userId, setUserId] = useState("");

@@ -1,10 +1,25 @@
 import classes from "./JobList.module.css";
 
 import Job from "./Job";
+import JobEdit from "./JobEdit";
 
-function JobList({jobs}) {
+function JobList({jobs, edit, user}) {
   return (
-    <ul className={classes.list}>
+    <>
+    {edit ? <ul className={classes.list}>
+      {jobs.map((job) => (
+        <JobEdit
+          key={job.id}
+          desc={job.desc}
+          title={job.title}
+          date={job.date}
+          pay={job.pay}
+          prof={job.prof}
+          id={job.id}
+          user={user}
+        />
+      ))}
+    </ul> : <ul className={classes.list}>
       {jobs.map((job) => (
         <Job
           key={job.id}
@@ -15,7 +30,8 @@ function JobList({jobs}) {
           prof={job.prof}
         />
       ))}
-    </ul>
+    </ul>}
+    </>
   );
 }
 export default JobList;

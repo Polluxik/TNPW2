@@ -11,6 +11,7 @@ function Home() {
 
   useEffect(() => {
     const getAllDocuments = async () => {
+      setIsLoading(true);
       const documents = [];
       const querySnapshot = await getDocs(collection(db, "jobs"));
       querySnapshot.forEach((doc) => {
@@ -18,22 +19,20 @@ function Home() {
       });
       setDocuments(documents);
       setLoadedJobs(documents);
+      setIsLoading(false);
     };
     getAllDocuments();
   }, []);
 
   return (
     <>
-      {/* <button onClick={getAllDocuments}>CC</button> */}
-      {/* <div>
-        <h2 style={{ textAlign: "center" }}>NO JOBS LOADED</h2>
-      </div> */}
-      {loadedJobs.length === 0 && (
+      {isLoading && (<div style={{ textAlign: "center" }}>LOADING...</div>)}
+      {!isLoading && loadedJobs.length === 0 && (
         <div style={{ textAlign: "center" }}>NO LOADED JOBS</div>
       )}
-      {loadedJobs.length > 0 && (
+      {!isLoading && loadedJobs.length > 0 && (
         <div>
-          <JobList jobs={loadedJobs} />
+          <JobList jobs={loadedJobs} edit={false}/>
         </div>
       )}
     </>

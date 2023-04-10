@@ -41,7 +41,7 @@ function Register(props) {
   return (
     <div>
       <h2 className={classes.title}>Register</h2>
-      <form>
+      <form className={classes.login}>
         <label className={classes.labels}htmlFor="username">Name</label>
         <input className={classes.input}
           type="text"
