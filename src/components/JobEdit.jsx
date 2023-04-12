@@ -81,7 +81,7 @@ function JobEdit({ title, desc, pay, prof, id, user }) {
             id="prof"
             name="prof"
             value={enteredProf}
-            onChange={(e) => setEnteredProf(e.target.value)}
+            onChange={profChange}
           />
           <br />
 

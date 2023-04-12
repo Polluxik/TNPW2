@@ -5,6 +5,7 @@ import { onAuthStateChanged } from "firebase/auth";
 
 import { auth, db } from "./firebase/firebase";
 import { collection, doc, setDoc } from "@firebase/firestore";
+import { useNavigate } from "react-router-dom";
 
 function CreateJob({ onAddJob }) {
   const [enteredTitle, setEnteredTitle] = useState("");
@@ -18,6 +19,8 @@ function CreateJob({ onAddJob }) {
   const currentDate = `${date.getDate()}/${
     date.getMonth() + 1
   }/${date.getFullYear()}`;
+
+  const navigate = useNavigate();
 
   onAuthStateChanged(auth, (user) => {
     if (user) {
@@ -42,12 +45,14 @@ function CreateJob({ onAddJob }) {
       prof: enteredProf,
       pay: enteredPay,
       desc: enteredDesc,
+      mail: logUser.email,
     });
+    navigate("/", { replace: true });
   };
 
   function titleChange(event) {
     setEnteredTitle(event.target.value);
-    console.log(enteredTitle);
+    //console.log(enteredTitle);
   }
 
   function descChange(event) {
@@ -71,7 +76,7 @@ function CreateJob({ onAddJob }) {
       prof: enteredProf,
     };
 
-    console.log(jobData);
+    //console.log(jobData);
     onAddJob(jobData);
   }
 
@@ -81,12 +86,24 @@ function CreateJob({ onAddJob }) {
         <div>
           <label htmlFor="title">Název</label>
           <br></br>
-          <input type="text" required id="title" onChange={titleChange}></input>
+          <input
+            type="text"
+            required
+            id="title"
+            onChange={titleChange}
+            className="input"
+          ></input>
         </div>
         <div>
           <label htmlFor="prof">Profese</label>
           <br></br>
-          <input type="text" required id="prof" onChange={profChange}></input>
+          <input
+            type="text"
+            required
+            id="prof"
+            onChange={profChange}
+            className="input"
+          ></input>
         </div>
         <div>
           <label htmlFor="desc">Informace</label>
@@ -95,17 +112,26 @@ function CreateJob({ onAddJob }) {
             id="desc"
             name="desc"
             rows="4"
-            cols="50"
+            cols="20"
             onChange={descChange}
+            className="textarea"
           ></textarea>
         </div>
-        <div className={classes.num}>
+        <div className="num">
           <label htmlFor="pay">Plat</label>
           <br></br>
-          <input type="number" required id="pay" onChange={payChange}></input>
+          <input
+            type="number"
+            required
+            id="pay"
+            onChange={payChange}
+            className="input"
+          ></input>
         </div>
         <div>
-          <button onClick={createJob}>Vytvoř nabídku</button>
+          <button onClick={createJob} className="button">
+            Vytvoř nabídku
+          </button>
         </div>
       </form>
     </JobLayout>

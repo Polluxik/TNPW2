@@ -12,7 +12,7 @@ function Account() {
     if (user) {
       setIsLogged(true);
       setLogUser(user.email);
-      console.log("user logged in? : " + isLogged);
+      //console.log("user logged in? : " + isLogged);
     } else {
       //console.log(isLogged);
       setIsLogged(false);
@@ -24,7 +24,7 @@ function Account() {
       .then(() => {
         navigate("/");
         setLogUser();
-        console.log("Signed out successfully");
+        //console.log("Signed out successfully");
       })
       .catch((error) => {});
   };
@@ -33,8 +33,9 @@ function Account() {
     <div>
       {isLogged ? (
         <>
+        <button style={{ backgroundColor: '#570077', color: 'white', border: 'none', padding: '10px 20px', borderRadius: '5px' }} onClick={handleLogout}>SIGN OUT</button>
+
           <Profile user={LogUser}/>
-          <button onClick={handleLogout}>SIGN OUT</button>
         </>
       ) : (
         <Credentials />

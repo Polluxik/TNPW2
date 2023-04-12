@@ -11,7 +11,7 @@ function Profile({user}) {
   useEffect(() => {
     const getAllDocuments = async () => {
       const documents = [];
-      console.log(user);
+      //console.log(user);
       const querySnapshot = await getDocs(collection(db, "accounts", user, "jobslist"));
       
       querySnapshot.forEach((doc) => {
@@ -24,10 +24,6 @@ function Profile({user}) {
 
   return (
     <>
-      {/* <button onClick={getAllDocuments}>CC</button> */}
-      {/* <div>
-        <h2 style={{ textAlign: "center" }}>NO JOBS LOADED</h2>
-      </div> */}
       {loadedJobs.length === 0 && (
         <div style={{ textAlign: "center" }}>NO LOADED JOBS</div>
       )}

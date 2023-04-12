@@ -11,7 +11,7 @@ function NewJob() {
   onAuthStateChanged(auth, (user) => {
     if (user) {
       setIsLogged(true);
-      console.log("user logged in? : " + isLogged);
+      //console.log("user logged in? : " + isLogged);
     } else {
       setIsLogged(false);
     }

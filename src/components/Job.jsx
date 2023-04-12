@@ -1,7 +1,7 @@
 import classes from "./Job.module.css";
 import JobLayout from "./layout/JobLayout";
 
-function Job({ title, desc, date, pay, prof }) {
+function Job({ title, desc, date, pay, prof, mail }) {
   return (
     <li className={classes.item}>
       <JobLayout>
@@ -15,6 +15,10 @@ function Job({ title, desc, date, pay, prof }) {
           <p>{desc}</p>
           <div className={classes.container}>
             <p>Plat: {pay}Kč/h</p>
+          </div>
+          <div className={classes.contact}><br></br>
+          <a href={"mailto:" + mail}>Napište mi!</a>
+
           </div>
         </div>
       </JobLayout>

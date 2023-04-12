@@ -28,6 +28,7 @@ function JobList({jobs, edit, user}) {
           date={job.date}
           pay={job.pay}
           prof={job.prof}
+          mail={job.mail}
         />
       ))}
     </ul>}
