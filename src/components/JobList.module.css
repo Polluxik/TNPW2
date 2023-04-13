@@ -1,0 +1,17 @@
+.list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+}
+
+.jobs {
+    flex: 2;
+}
+
+.menu {
+    flex: 1;
+}

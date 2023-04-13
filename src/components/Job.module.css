@@ -1,0 +1,42 @@
+.item {
+    margin: 1rem 0;
+}
+
+.content {
+    text-align: left;
+    padding: 1rem;
+    color: rgb(0, 0, 0);
+}
+
+.container h1 {
+    font-size: 1.8rem;
+}
+
+.content .date {
+    text-align: right;
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 14px;
+}
+
+.container {
+    display: flex;
+    margin-bottom: -20px;
+    margin-top: -20px;
+    justify-content: space-between;
+}
+
+
+.contact a{
+    text-decoration: none;
+    color: #570077;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-bottom: 2px solid #570077;
+    transition: all 0.3s ease;
+  }
+  
+  .contact a:hover {
+    color: #fcb8d2;
+    border-bottom: 2px solid #fcb8d2;
+  }
+  
