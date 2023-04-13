@@ -13,10 +13,12 @@ function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  //nastavi register formular
   function loginOnClickListener(e){
     e.preventDefault();
     props.onLoginClick();
   }
+  //prihlaseni
   const onLogin = async (e) => {
     e.preventDefault();
 

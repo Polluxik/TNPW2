@@ -13,11 +13,13 @@ function Register(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  //nastavi login formular
   function registerOnClickListener(e){
     e.preventDefault();
     props.onRegisterClick();
   }
 
+  //registrace
   const onRegister = async (e) => {
     e.preventDefault();
 

@@ -1,6 +1,7 @@
 import classes from "./Job.module.css";
 import JobLayout from "./layout/JobLayout";
 
+//vypis nabidky
 function Job({ title, desc, date, pay, prof, mail }) {
   return (
     <li className={classes.item}>

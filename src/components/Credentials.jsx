@@ -10,6 +10,7 @@ import classes from "./Credentials.module.css";
 function Credentials() {
   const [isLogin, setIsLogin] = useState(true);
 
+  //kontroluje, ktery formular se ma zobrazit
   function handleLogin(){
     if(isLogin) setIsLogin(false);
     else setIsLogin(true);

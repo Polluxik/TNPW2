@@ -2,6 +2,8 @@ import { getFirestore } from "@firebase/firestore";
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
+//firebase config a inicializace
+
 const firebaseConfig = {
   apiKey: "AIzaSyAlzg1FBKu0MWmleYdgymJ4QbrmLrCndMs",
   authDomain: "tnpw2jobs.firebaseapp.com",

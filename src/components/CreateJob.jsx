@@ -22,12 +22,14 @@ function CreateJob({ onAddJob }) {
 
   const navigate = useNavigate();
 
+  //kontroluje kdo je prihlaseny
   onAuthStateChanged(auth, (user) => {
     if (user) {
       setLogUser(user);
     }
   });
 
+  //vytvori novou nabidku v db
   const createJob = async (e) => {
     e.preventDefault();
 
@@ -50,11 +52,11 @@ function CreateJob({ onAddJob }) {
     navigate("/", { replace: true });
   };
 
+  //funkce ktere nastavi UseState
   function titleChange(event) {
     setEnteredTitle(event.target.value);
     //console.log(enteredTitle);
   }
-
   function descChange(event) {
     setEnteredDesc(event.target.value);
   }

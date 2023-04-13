@@ -1,5 +1,6 @@
 import classes from "./Footer.module.css";
 
+//footer
 function Footer() {
     return (
       <footer className={classes.footer}>

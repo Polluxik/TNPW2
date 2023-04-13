@@ -8,6 +8,7 @@ import JobList from "./JobList";
 function Profile({user}) {
   const [loadedJobs, setLoadedJobs] = useState([]);
 
+  //ziska vsechny dokumenty z db
   useEffect(() => {
     const getAllDocuments = async () => {
       const documents = [];
@@ -21,7 +22,7 @@ function Profile({user}) {
     };
     getAllDocuments();
   }, []);
-
+//kontroluje jestli existuje aspon 1 nabidka z db
   return (
     <>
       {loadedJobs.length === 0 && (

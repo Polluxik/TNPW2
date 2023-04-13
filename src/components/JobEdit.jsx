@@ -11,6 +11,7 @@ function JobEdit({ title, desc, pay, prof, id, user }) {
   const [enteredProf, setEnteredProf] = useState(prof);
   const [enteredPay, setEnteredPay] = useState(pay);
 
+  //funkce pro zmenu UseStatu
   function titleChange(event) {
     setEnteredTitle(event.target.value);
     console.log(enteredTitle);
@@ -31,8 +32,10 @@ function JobEdit({ title, desc, pay, prof, id, user }) {
   }/${date.getFullYear()}`;
 
   const navigate = useNavigate();
+
   const collectionAccRef = collection(db, "accounts", user, "jobslist");
   const collectionJobRef = collection(db, "jobs");
+  //update nabidky
   function handleEdit(e) {
     e.preventDefault();
     updateDoc(doc(collectionAccRef, id), {
@@ -49,6 +52,7 @@ function JobEdit({ title, desc, pay, prof, id, user }) {
     });
     navigate("/", { replace: true });
   }
+  //odstraneni nabidky
   function handleDelete(e) {
     e.preventDefault();
 

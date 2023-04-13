@@ -3,6 +3,7 @@ import classes from "./JobList.module.css";
 import Job from "./Job";
 import JobEdit from "./JobEdit";
 
+//zobrazi list nabidek podle toho jestli je nastavena promenna edit
 function JobList({jobs, edit, user}) {
   return (
     <>

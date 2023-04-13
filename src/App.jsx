@@ -7,6 +7,7 @@ import Account from "./pages/Account";
 
 import Layout from "./components/layout/MainLayout";
 
+//Layout a routy pro zmenu stranek
 function App() {
   return (
     <Layout>

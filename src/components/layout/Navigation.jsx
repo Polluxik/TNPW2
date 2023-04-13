@@ -8,6 +8,7 @@ import { doc, getDoc } from "@firebase/firestore";
 function Navigation() {
   const [userId, setUserId] = useState("");
 
+//kontroluje kdo je prihlaseny a ziska username z db
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -31,6 +32,7 @@ function Navigation() {
     });
   }, []);
 
+  //navbar a zmena textu podle toho jestli je uzivatel prihlaseny nebo ne
   return (
     <header className={classes.header}>
       <div className={classes.logo}>Job Search</div>
